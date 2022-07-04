@@ -1,7 +1,6 @@
 {
   "name": "@cypress-test-tiny/i18n",
   "version": "0.0.0",
-  "files": ["locale/en.json", "locale/tr.json"],
   "module": "index.js",
   "exports": {
     ".": {
