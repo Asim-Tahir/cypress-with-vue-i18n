@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +25,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+import i18n from "@cypress-test-tiny/i18n";
+
+Cypress.Commands.add(
+  "$t",
+  /**
+   * @param {string} key
+   * @returns {string}
+   */
+  (key) => i18n.t(key)
+);
+Cypress.Commands.add(
+  "$changeLocale",
+  /**
+   *
+   * @param {"tr" | "en"} locale
+   * @returns {void}
+   */
+  (locale) => i18n.changeLocale(locale)
+);
