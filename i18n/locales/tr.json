@@ -1,5 +1,8 @@
 {
-  "hello": "Merhaba",
-  "world": "Dünya",
-  "commands": "Komutlar"
+  "hello": "Merhaba Vue 3 + Vite",
+  "ideSetup": "Önerilen IDE kurulumu",
+  "viteDocs": "Vite Dokümantasyonu",
+  "vue3Docs": "Vue 3 Dökümantasyonu",
+  "countIs": "sayı {n}'dır",
+  "editComponent": "Sıcak modül değişimini test etmek için <code>{code}</code>'u düzenle."
 }
