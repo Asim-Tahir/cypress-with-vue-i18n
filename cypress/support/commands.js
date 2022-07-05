@@ -34,7 +34,7 @@ Cypress.Commands.add(
    * @param {string} key
    * @returns {string}
    */
-  (key) => i18n.t(key)
+  (key) => i18n.global.t(key)
 );
 Cypress.Commands.add(
   "$changeLocale",
@@ -43,5 +43,7 @@ Cypress.Commands.add(
    * @param {"tr" | "en"} locale
    * @returns {void}
    */
-  (locale) => i18n.changeLocale(locale)
+  (locale) => {
+    i18n.global.locale.value = locale;
+  }
 );

@@ -7,5 +7,8 @@
       "default": "./index.js",
       "import": "./index.js"
     }
+  },
+  "dependencies": {
+    "vue-i18n": "^9.1.10"
   }
 }
