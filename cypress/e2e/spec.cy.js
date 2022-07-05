@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
-describe("page", () => {
+describe("spec", () => {
   it("should convert i18n keys", () => {
-    cy.$t("hello").should("be.eq", "Hello");
-    cy.$t("world").should("be.eq", "World");
+    expect(cy.$t("hello")).to.equal("Hello Vue 3 + Vite");
+    expect(cy.$t("countIs", { n: 0 })).to.equal("count is 0");
 
-    cy.$changeLocale("tr");
+    cy.$toggleLocale();
 
-    cy.$t("hello").should("be.eq", "Merhaba");
-    cy.$t("world").should("be.eq", "Dünya");
+    expect(cy.$t("hello")).to.equal("Merhaba Vue 3 + Vite");
+    expect(cy.$t("countIs", { n: 0 })).to.equal("sayı 0'dır");
   });
 });
