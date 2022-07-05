@@ -4,5 +4,6 @@
   "viteDocs": "Vite Dokümantasyonu",
   "vue3Docs": "Vue 3 Dökümantasyonu",
   "countIs": "sayı {n}'dır",
-  "editComponent": "Sıcak modül değişimini test etmek için <code>{code}</code>'u düzenle."
+  "editComponent": "Sıcak modül değişimini test etmek için <code>{code}</code>'u düzenle.",
+  "changeLocale": "Yerel dili {locale}'den değiştirin"
 }

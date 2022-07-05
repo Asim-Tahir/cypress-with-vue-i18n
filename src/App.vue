@@ -26,7 +26,9 @@ function toggleLocale() {
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld :msg="t('hello')" />
-  <button @click="toggleLocale()">Change Locale from {{ locale }}</button>
+  <button @click="toggleLocale()">
+    {{ t("changeLocale", { locale }) }}
+  </button>
 </template>
 
 <style>

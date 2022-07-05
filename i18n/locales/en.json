@@ -4,5 +4,6 @@
   "viteDocs": "Vite Documentation",
   "vue3Docs": "Vue 3 Documentation",
   "countIs": "count is {n}",
-  "editComponent": "Edit <code>{code}</code> to test hot module replacement."
+  "editComponent": "Edit <code>{code}</code> to test hot module replacement.",
+  "changeLocale": "Change Locale from {locale}"
 }
