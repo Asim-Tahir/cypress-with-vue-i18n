@@ -28,14 +28,13 @@
 
 import i18n from "@cypress-test-tiny/i18n";
 
-Cypress.Commands.add(
-  "$t",
+cy.$t =
   /**
-   * @param {string} key
+   * @param {Array<unknown>} args
    * @returns {string}
    */
-  (key) => i18n.global.t(key)
-);
+  (...args) => i18n.global.t(...args);
+
 Cypress.Commands.add(
   "$changeLocale",
   /**
