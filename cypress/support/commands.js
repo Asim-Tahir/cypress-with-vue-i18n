@@ -28,6 +28,8 @@
 
 import i18n from "@cypress-test-tiny/i18n";
 
+cy.$getLocale = () => i18n.global.locale.value;
+
 cy.$t =
   /**
    * @param {Array<unknown>} args
@@ -35,14 +37,17 @@ cy.$t =
    */
   (...args) => i18n.global.t(...args);
 
-Cypress.Commands.add(
-  "$changeLocale",
-  /**
-   *
-   * @param {"tr" | "en"} locale
-   * @returns {void}
-   */
-  (locale) => {
-    i18n.global.locale.value = locale;
+cy.$toggleLocale = () => {
+  switch (i18n.global.locale.value) {
+    case "tr":
+      i18n.global.locale.value = "en";
+      break;
+
+    case "en":
+      i18n.global.locale.value = "tr";
+      break;
+
+    default:
+      i18n.global.locale.value = "tr";
   }
-);
+};
