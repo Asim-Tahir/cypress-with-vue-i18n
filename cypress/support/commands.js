@@ -28,26 +28,49 @@
 
 import i18n from "@cypress-test-tiny/i18n";
 
-cy.$getLocale = () => i18n.global.locale.value;
+// Object.defineProperties(cy, {
+//   $t: {
+//     value: i18n.global.t.bind(i18n.global),
+//   },
+//   $toggleLocale: {
+//     value: () => {
+//       switch (i18n.global.locale.value) {
+//         case "tr":
+//           i18n.global.locale.value = "en";
+//           return i18n.global.locale.value;
 
-cy.$t =
-  /**
-   * @param {Array<unknown>} args
-   * @returns {string}
-   */
-  (...args) => i18n.global.t(...args);
+//         case "en":
+//           i18n.global.locale.value = "tr";
+//           return i18n.global.locale.value;
 
-cy.$toggleLocale = () => {
-  switch (i18n.global.locale.value) {
-    case "tr":
-      i18n.global.locale.value = "en";
-      break;
+//         default:
+//           i18n.global.locale.value = "tr";
+//           return i18n.global.locale.value;
+//       }
+//     },
+//   },
+//   $getLocale: {
+//     value: () => i18n.global.locale.value,
+//   },
+// });
 
-    case "en":
-      i18n.global.locale.value = "tr";
-      break;
+Object.defineProperty(cy, "$i18n", {
+  value: {
+    ...i18n.global,
+    toggleLocale: () => {
+      switch (cy.$i18n.locale.value) {
+        case "tr":
+          cy.$i18n.locale.value = "en";
+          return cy.$i18n.locale.value;
 
-    default:
-      i18n.global.locale.value = "tr";
-  }
-};
+        case "en":
+          cy.$i18n.locale.value = "tr";
+          return cy.$i18n.locale.value;
+
+        default:
+          cy.$i18n.locale.value = "tr";
+          return cy.$i18n.locale.value;
+      }
+    },
+  },
+});
