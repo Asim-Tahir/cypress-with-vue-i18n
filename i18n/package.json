@@ -1,14 +1,29 @@
 {
   "name": "@cypress-test-tiny/i18n",
   "version": "0.0.0",
-  "module": "index.js",
+  "module": "dist/index.js",
+  "types": "types/index.d.ts",
   "exports": {
     ".": {
-      "default": "./index.js",
-      "import": "./index.js"
+      "default": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./types/index.d.ts"
     }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./types/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc"
   },
   "dependencies": {
     "vue-i18n": "^9.1.10"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
   }
 }

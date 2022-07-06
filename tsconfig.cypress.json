@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    "composite": true,
+    "isolatedModules": false,
+    "lib": ["ES2016", "DOM", "DOM.Iterable"],
+    "types": ["node", "cypress"]
+  },
+  "include": ["cypress/**/*.ts"]
+}

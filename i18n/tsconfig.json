@@ -1,0 +1,15 @@
+{
+  "include": ["locales/**/*.json", "locales/**/*.ts", "index.ts"],
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["ES2016"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "types"
+  }
+}
