@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -40,7 +38,9 @@ import i18n from "@cypress-test-tiny/i18n";
 
 Object.defineProperties(cy, {
   $t: {
-    value: i18n.global.t.bind(i18n.global),
+    value: i18n.global.t,
+    writable: false,
+    configurable: false,
   },
   $toggleLocale: {
     value: () => {
@@ -58,8 +58,12 @@ Object.defineProperties(cy, {
           return i18n.global.locale.value;
       }
     },
+    writable: false,
+    configurable: false,
   },
   $getLocale: {
     value: () => i18n.global.locale.value,
+    writable: false,
+    configurable: false,
   },
 });
