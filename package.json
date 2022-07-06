@@ -26,11 +26,12 @@
     "url": "https://github.com/cypress-io/cypress-test-tiny.git"
   },
   "dependencies": {
+    "@cypress-test-tiny/components": "workspace:^",
+    "@cypress-test-tiny/i18n": "workspace:^",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.10"
   },
   "devDependencies": {
-    "@cypress-test-tiny/i18n": "^0.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "cypress": "^10.3.0",
     "ok-file": "1.5.2",
@@ -41,7 +42,7 @@
   },
   "workspaces": {
     "packages": [
-      "i18n"
+      "packages/*"
     ]
   }
 }

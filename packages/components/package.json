@@ -1,0 +1,11 @@
+{
+  "name": "@cypress-test-tiny/components",
+  "version": "0.0.0",
+  "module": "index.ts",
+  "exports": {
+    ".": {
+      "default": "./index.ts",
+      "import": "./index.ts"
+    }
+  }
+}

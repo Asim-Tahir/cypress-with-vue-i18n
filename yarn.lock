@@ -38,9 +38,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress-test-tiny/i18n@^0.0.0, @cypress-test-tiny/i18n@workspace:i18n":
+"@cypress-test-tiny/assets@workspace:packages/assets":
   version: 0.0.0-use.local
-  resolution: "@cypress-test-tiny/i18n@workspace:i18n"
+  resolution: "@cypress-test-tiny/assets@workspace:packages/assets"
+  languageName: unknown
+  linkType: soft
+
+"@cypress-test-tiny/components@workspace:^, @cypress-test-tiny/components@workspace:packages/components":
+  version: 0.0.0-use.local
+  resolution: "@cypress-test-tiny/components@workspace:packages/components"
+  languageName: unknown
+  linkType: soft
+
+"@cypress-test-tiny/i18n@workspace:^, @cypress-test-tiny/i18n@workspace:packages/i18n":
+  version: 0.0.0-use.local
+  resolution: "@cypress-test-tiny/i18n@workspace:packages/i18n"
   dependencies:
     typescript: ^4.7.4
     vue-i18n: ^9.1.10
@@ -891,7 +903,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "cypress-test-tiny@workspace:."
   dependencies:
-    "@cypress-test-tiny/i18n": ^0.0.0
+    "@cypress-test-tiny/components": "workspace:^"
+    "@cypress-test-tiny/i18n": "workspace:^"
     "@vitejs/plugin-vue": ^2.3.3
     cypress: ^10.3.0
     ok-file: 1.5.2

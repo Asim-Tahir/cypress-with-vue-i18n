@@ -2,7 +2,8 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { useI18n } from "vue-i18n";
-import HelloWorld from "./components/HelloWorld.vue";
+import { HelloWorld } from "@cypress-test-tiny/components";
+import logoImage from "@cypress-test-tiny/assets/images/logo.png";
 
 const { t, locale } = useI18n();
 
@@ -24,7 +25,7 @@ function toggleLocale() {
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <img alt="Vue logo" :src="logoImage" />
   <HelloWorld :msg="t('hello')" />
   <button @click="toggleLocale()">
     {{ t("changeLocale", { locale }) }}
