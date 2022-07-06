@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 describe("spec", () => {
   it("should convert i18n keys", () => {
     expect(cy.$t("hello")).to.equal("Hello Vue 3 + Vite");
