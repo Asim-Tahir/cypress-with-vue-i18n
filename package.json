@@ -39,7 +39,9 @@
     "vite": "^2.9.9",
     "vue-tsc": "^0.38.2"
   },
-  "workspaces": [
-    "i18n"
-  ]
+  "workspaces": {
+    "packages": [
+      "i18n"
+    ]
+  }
 }
