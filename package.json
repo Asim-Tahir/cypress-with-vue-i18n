@@ -25,7 +25,7 @@
   "dependencies": {
     "@cypress-test-tiny/components": "workspace:^",
     "@cypress-test-tiny/i18n": "workspace:^",
-    "vue": "^3.2.25",
+    "vue": "^3.2.37",
     "vue-i18n": "^9.1.10"
   },
   "devDependencies": {
