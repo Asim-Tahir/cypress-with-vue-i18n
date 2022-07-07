@@ -28,7 +28,8 @@
       "packages/i18n/locales"
     ],
     "conventionalCommits.scopes": [
-      "e2e_tests"
+      "e2e_tests",
+      "deps"
     ]
   }
 }
