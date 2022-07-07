@@ -1,6 +1,7 @@
 {
   "include": ["locales/**/*.json", "locales/**/*.ts", "index.ts"],
   "compilerOptions": {
+    "composite": true,
     "target": "ES6",
     "lib": ["ES2016"],
     "allowSyntheticDefaultImports": true,
