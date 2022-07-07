@@ -1,0 +1,29 @@
+{
+  "extensions": {
+    "recommendations": ["Vue.volar"]
+  },
+  "folders": [
+    {
+      "name": "cypress-test-tiny",
+      "path": "."
+    },
+    {
+      "name": "@cypress-test-tiny/i18n",
+      "path": "packages/i18n"
+    },
+    {
+      "name": "@cypress-test-tiny/components",
+      "path": "packages/components"
+    },
+    {
+      "name": "@cypress-test-tiny/assets",
+      "path": "packages/assets"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": false
+    },
+    "i18n-ally.localesPaths": ["packages/i18n/locales"]
+  }
+}
