@@ -1,0 +1,62 @@
+name: End to End(E2E) Tests
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+    branches:
+      - main
+      - "!renovate/**"
+  workflow_dispatch:
+
+jobs:
+  e2e_tests:
+    if: "!startsWith(github.event.pull_request.title, 'WIP:')"
+    runs-on: ubuntu-22.04
+    container:
+      image: cypress/base:16.14.2-slim
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure host for Test API ⚙️
+        run: echo "$TEST_API_SERVER_HOST $TEST_API_SERVER_IP" >> /etc/hosts
+
+      - name: Get yarn cache directory path 🛣️
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Cache yarn dependencies 📦
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: chmod -R 777 /github/home
+
+      - name: Run E2E Tests 🧪💻
+        uses: cypress-io/github-action@v4
+        with:
+          install-command: yarn install --immutable
+          build: yarn build
+          start: yarn preview
+          command: yarn cypress run
+          wait-on: "http://localhost:5050"
+
+      - name: Upload Cypress Screenshot on Failure 🖼️⬆️
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - name: Upload Cypress Video 📽️⬆️
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
