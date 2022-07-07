@@ -3,6 +3,7 @@
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "lib": ["ES2016", "ES2019.Object"]
   }
 }
