@@ -24,6 +24,11 @@
     "files.exclude": {
       "**/.git": false
     },
-    "i18n-ally.localesPaths": ["packages/i18n/locales"]
+    "i18n-ally.localesPaths": [
+      "packages/i18n/locales"
+    ],
+    "conventionalCommits.scopes": [
+      "e2e_tests"
+    ]
   }
 }
