@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: cypress/base:16.14.2-slim
+      options: --user 1001
     steps:
       - uses: actions/checkout@v3
 
@@ -35,6 +36,11 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      - name: Change Owner of home cache
+        run: |
+          chown -R 1001:1001 /github/home/.cache
+          echo "pwn dat cache"
 
       - name: Run E2E Tests 🧪💻
         uses: cypress-io/github-action@v4
