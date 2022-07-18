@@ -21,8 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Configure host for Test API ⚙️
-        run: echo "$TEST_API_SERVER_HOST $TEST_API_SERVER_IP" >> /etc/hosts
+      # - name: Configure host for Test API ⚙️
+      #   run: echo "$TEST_API_SERVER_HOST $TEST_API_SERVER_IP" >> /etc/hosts
 
       - name: Get yarn cache directory path 🛣️
         id: yarn-cache-dir-path
@@ -44,4 +44,5 @@ jobs:
           build: yarn build
           start: yarn preview
           command: yarn cypress run
-          wait-on: "http://localhost:4173"
+          wait-on: "http://thissiteisunexist.com:4173"
+
