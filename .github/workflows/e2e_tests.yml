@@ -11,17 +11,13 @@ on:
       - "!renovate/**"
   workflow_dispatch:
 
-env:
-  TEST_API_SERVER_HOST: thissiteisunexist.com
-  TEST_API_SERVER_IP: 127.0.0.1
-
 jobs:
   e2e_tests:
     if: "!startsWith(github.event.pull_request.title, 'WIP:')"
     runs-on: ubuntu-22.04
     container:
       image: cypress/base:16.14.2-slim
-      options: --user 1001 --hostname ${{ env.TEST_API_SERVER_HOST }} --ip ${{ env.TEST_API_SERVER_IP }}
+      options: --user 1001 --hostname thissiteisunexist.com --ip 127.0.0.1
     steps:
       - uses: actions/checkout@v3
 
