@@ -11,6 +11,10 @@ on:
       - "!renovate/**"
   workflow_dispatch:
 
+env:
+  TEST_API_SERVER_HOST: thissiteisunexist.com
+  TEST_API_SERVER_IP: 127.0.0.1
+
 jobs:
   e2e_tests:
     if: "!startsWith(github.event.pull_request.title, 'WIP:')"
