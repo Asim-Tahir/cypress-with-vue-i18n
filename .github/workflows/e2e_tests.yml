@@ -36,9 +36,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - if: ${{ !env.ACT }}
-        run: chmod -R 777 /github/home
-
       - name: Run E2E Tests 🧪💻
         uses: cypress-io/github-action@v4
         with:
