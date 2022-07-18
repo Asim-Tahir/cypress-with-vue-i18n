@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: cypress/base:16.14.2-slim
-      options: --user 1001
+      options: --user 1001 --hostname ${{ env.TEST_API_SERVER_HOST }} --ip ${{ env.TEST_API_SERVER_IP }}
     steps:
       - uses: actions/checkout@v3
 
