@@ -37,11 +37,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Change Owner of home cache
-        run: |
-          chown -R 1001:1001 /github/home/.cache
-          echo "pwn dat cache"
-
       - name: Run E2E Tests 🧪💻
         uses: cypress-io/github-action@v4
         with:
