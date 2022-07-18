@@ -14,7 +14,7 @@ on:
 jobs:
   e2e_tests:
     if: "!startsWith(github.event.pull_request.title, 'WIP:')"
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     container:
       image: cypress/base:16.14.2-slim
     steps:
