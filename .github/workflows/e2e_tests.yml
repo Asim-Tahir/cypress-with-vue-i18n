@@ -18,10 +18,27 @@ jobs:
     container:
       image: cypress/base:16.14.2-slim
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout 🚩
+        uses: actions/checkout@v3
+
+      # - name: Install cURL ⬇️
+      #   run: |
+      #     apt update
+      #     apt install curl -y
+
+      # - name: Install hostess 🪶
+      #   run: |
+      #     curl -Lso /usr/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
+      #     chmod +x /usr/bin/hostess
+
+
+      # - name: Add test API hostname/IP via hostess ⚙️
+      #   run: hostess add thissiteisunexist.com 127.0.0.1
 
       - name: Configure host for Test API ⚙️
-        run: echo "$TEST_API_SERVER_HOST $TEST_API_SERVER_IP" >> /etc/hosts
+        run: | 
+          echo "127.0.0.1 thissiteisunexist.com" >> /etc/hosts
+          cat /etc/hosts
 
       - name: Get yarn cache directory path 🛣️
         id: yarn-cache-dir-path
@@ -36,27 +53,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: chmod -R 777 /github/home
+      # - name: Change owner of /github/home/ 👤
+      #   run: chown -R root:root /github/home/
 
-      - name: Run E2E Tests 🧪💻
-        uses: cypress-io/github-action@v4
-        with:
-          install-command: yarn install --immutable
-          build: yarn build
-          start: yarn preview
-          command: yarn cypress run
-          wait-on: "http://localhost:5050"
+      - name: Install dependencies 📦
+        run: yarn install --immutable
 
-      - name: Upload Cypress Screenshot on Failure 🖼️⬆️
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+      - name: Build the app 🏗️
+        run: yarn build
 
-      - name: Upload Cypress Video 📽️⬆️
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+      - name: Run E2E tests 🧪💻
+        run: yarn e2e:run

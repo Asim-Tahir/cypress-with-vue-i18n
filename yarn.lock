@@ -54,7 +54,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@cypress-test-tiny/i18n@workspace:packages/i18n"
   dependencies:
-    typescript: ^4.7.4
     vue-i18n: ^9.1.10
   languageName: unknown
   linkType: soft
