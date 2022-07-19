@@ -18,7 +18,8 @@ jobs:
     container:
       image: cypress/base:16.14.2-slim
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout 🚩
+        uses: actions/checkout@v3
 
       # - name: Install cURL ⬇️
       #   run: |
