@@ -62,12 +62,3 @@ jobs:
 
       - name: Run E2E tests 🧪💻
         run: yarn e2e:run
-
-      # - name: Run E2E Tests 🧪💻
-      #   uses: cypress-io/github-action@v4
-      #   with:
-      #     install-command: yarn install --immutable
-      #     build: yarn build
-      #     start: yarn preview
-      #     command: yarn cypress run
-      #     wait-on: "http://thissiteisunexist.com:4173"
