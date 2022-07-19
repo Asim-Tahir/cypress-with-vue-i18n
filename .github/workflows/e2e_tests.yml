@@ -51,8 +51,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Change owner of /github/home/ 👤
-        run: chown -R root:root /github/home/
+      # - name: Change owner of /github/home/ 👤
+      #   run: chown -R root:root /github/home/
 
       - name: Install dependencies 📦
         run: yarn install --immutable
