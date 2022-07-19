@@ -36,7 +36,9 @@ jobs:
       #   run: hostess add thissiteisunexist.com 127.0.0.1
 
       - name: Configure host for Test API ⚙️
-        run: echo "thissiteisunexist.com 127.0.0.1" >> /etc/hosts
+        run: | 
+          echo "thissiteisunexist.com 127.0.0.1" >> /etc/hosts
+          cat /etc/hosts
 
       - name: Get yarn cache directory path 🛣️
         id: yarn-cache-dir-path
