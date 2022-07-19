@@ -32,7 +32,7 @@ jobs:
 
 
       - name: Add test API hostname/IP via hostess ⚙️
-        run: hostess add $TEST_API_SERVER_HOST $TEST_API_SERVER_IP
+        run: hostess add thissiteisunexist.com 127.0.0.1
 
       # - name: Configure host for Test API ⚙️
       #   run: echo "$TEST_API_SERVER_HOST $TEST_API_SERVER_IP" >> /etc/hosts
