@@ -17,9 +17,23 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: cypress/base:16.14.2-slim
-      options: --user 1001 --hostname thissiteisunexist.com --ip 127.0.0.1
+      options: --user 1001
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install cURL
+        run: |
+          apt update
+          apt install curl -y
+
+      - name: Install hostess
+        run: |
+          curl -Lso /usr/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
+          chmod +x /usr/bin/hostess
+
+
+      - name: Add test API hostname/IP via hostess ⚙️
+        run: hostess add $TEST_API_SERVER_HOST $TEST_API_SERVER_IP
 
       # - name: Configure host for Test API ⚙️
       #   run: echo "$TEST_API_SERVER_HOST $TEST_API_SERVER_IP" >> /etc/hosts
@@ -45,4 +59,3 @@ jobs:
           start: yarn preview
           command: yarn cypress run
           wait-on: "http://thissiteisunexist.com:4173"
-
