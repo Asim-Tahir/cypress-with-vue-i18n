@@ -50,6 +50,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Change owner of /github/home/ 👤
+        run: chown -R root:root /github/home/
+
       - name: Run E2E Tests 🧪💻
         uses: cypress-io/github-action@v4
         with:
