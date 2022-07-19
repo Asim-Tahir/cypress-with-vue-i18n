@@ -17,7 +17,6 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: cypress/base:16.14.2-slim
-      options: --user 1001
     steps:
       - uses: actions/checkout@v3
 
